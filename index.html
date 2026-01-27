@@ -5,6 +5,38 @@
   <meta charset="UTF-8" />
   <title>Lista de Presentes – Andreza & Joab</title>
   <style>
+
+    .paleta-container {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .titulo-paleta{
+      front-weight: bold;
+      margin-bottom: 10px;
+      front-size: 1.1em;
+      color: #4a4a4a;
+    }
+    .paleta-cores{
+      display:flex;
+      justify-content:center;
+      gap: 25px
+    }
+    .bola-com-label{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .bola{
+      width: 30px;
+      heigth: 30px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      margim-bottom: 6px;
+    }
+    .label-cor{
+      front-size: 0,85em;
+      color: #4a4a4a;
+    }
     body {
       font-family: Arial, sans-serif;
       background: #f8f4ef;
@@ -45,6 +77,24 @@
 <body>
 
   <h1>Lista de Presentes</h1>
+
+  <div class="paleta-container">
+    <p class="titulo-paleta">Sugestão de cores</p>
+    <div class="paleta-cores">
+      <div class="bola com label">
+        <span class="bola" style="background-color: #c9a24d;"></span>
+        <span class="label-cor">Dourado</span>
+      </div>
+      <div class="bola com label">
+        <span class="bola" style="background-color: #4a4a4a;"></span>
+        <span class="label-cor">Preto</span>
+      </div>
+      <div class="bola com label">
+        <span class="bola" style="background-color: #f8f8f2;"></span>
+        <span class="label-cor">Branco</span>
+      </div>
+    </div>
+  </div>
 
   <div class="container" id="lista"></div>
 
