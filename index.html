@@ -1,0 +1,57 @@
+<script>
+const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
+const SUPABASE_KEY = "SUA_CHAVE_AQUI"; // pode manter a sua
+
+async function carregarItens() {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`
+    }
+  });
+
+  const data = await res.json();
+  mostrarItens(data);
+}
+
+function mostrarItens(itens) {
+  const lista = document.getElementById("lista");
+  lista.innerHTML = "";
+
+  itens.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "item" + (item.reservado ? " checked" : "");
+
+    const span = document.createElement("span");
+    span.textContent = item.nome;
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = item.reservado;
+    checkbox.disabled = item.reservado;
+
+    checkbox.onchange = () => reservarItem(item.id);
+
+    div.appendChild(span);
+    div.appendChild(checkbox);
+
+    lista.appendChild(div);
+  });
+}
+
+async function reservarItem(id) {
+  await fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
+    method: "PATCH",
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ reservado: true })
+  });
+
+  carregarItens();
+}
+
+carregarItens();
+</script>
