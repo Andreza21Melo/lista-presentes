@@ -27,7 +27,7 @@
     .item {
       display: flex;
       justify-content: space-between;
-      padding: 8px 0;
+      padding: 14px 0;
       border-bottom: 1px solid #eee;
       align-items: center;
     }
@@ -135,7 +135,7 @@
       itens.sort((a,b)=>{
         if (a.reservado!== b.reservado){
         return a.reservado ? 1:-1;
-          return a.nome.localeCompare(b.nome, 'pt-BR')
+          return a.nome.localeCompare(b.nome, 'pt-BR');
       });
 
       itens.forEach(item => {
