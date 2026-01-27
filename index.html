@@ -78,6 +78,12 @@
       const lista = document.getElementById("lista");
       lista.innerHTML = "";
 
+      //ordena para mostrar itens nao reservados primeiro
+      itens.sort((a,b)=>{
+        if (a.reservado=== b.reservado)return 0;
+        return a.reservado ? 1:-1;
+      });
+
       itens.forEach(item => {
         const div = document.createElement("div");
         div.className = "item" + (item.reservado ? " checked" : "");
