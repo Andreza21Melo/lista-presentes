@@ -1,6 +1,6 @@
 <script>
 const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
-const SUPABASE_KEY = "SUA_CHAVE_AQUI"; // pode manter a sua
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI"; // pode manter a sua
 
 async function carregarItens() {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
