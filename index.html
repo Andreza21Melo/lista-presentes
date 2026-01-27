@@ -135,6 +135,7 @@
       itens.sort((a,b)=>{
         if (a.reservado!== b.reservado){
         return a.reservado ? 1:-1;
+        }
           return a.nome.localeCompare(b.nome, 'pt-BR');
       });
 
