@@ -292,9 +292,22 @@
     Andreza Fernandes Melo - Mercado Pago
     </p>
   </div>
+<div id="popup-overlay" class="popup-overlay">
+  <div class="popup-box">
+    <p>Deseja realmente reservar este presente?</p>
+    <div class="popup-botoes">
+      <button id="btn-cancelar">Cancelar</button>
+      <button id="btn-confirmar">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast">
+  🎁 Item reservado com sucesso! Obrigada pelo carinho 💕
+</div>
 <script>
 const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
-const SUPABASE_KEY = "SUA_KEY_AQUI";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI";
 
 let itemParaReservar = null;
 let checkboxAtual = null;
@@ -385,20 +398,6 @@ function mostrarToast() {
 
 carregarItens();
 </script>
-<div id="popup-overlay" class="popup-overlay">
-  <div class="popup-box">
-    <p>Deseja realmente reservar este presente?</p>
-    <div class="popup-botoes">
-      <button id="btn-cancelar">Cancelar</button>
-      <button id="btn-confirmar">Confirmar</button>
-    </div>
-  </div>
-</div>
-
-<div id="toast" class="toast">
-  🎁 Item reservado com sucesso! Obrigada pelo carinho 💕
-</div>
-
 
 </body>
 </html>
