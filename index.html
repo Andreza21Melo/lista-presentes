@@ -31,9 +31,11 @@
     .item {
       display: flex;
       justify-content: space-between;
-      padding: 18px 0;
+      padding: 16px 0;
       border-bottom: 1px solid #eee;
       align-items: center;
+      font-family:'Cormorant Garamond', serif;
+      font-size:18px;
     }
     .item.checked {
       opacity: 0.5;
@@ -102,6 +104,32 @@
       display:block;
       margin:0 auto 15px auto;
       border-radius:8px;
+    }
+    @media (max-width: 480px) {
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .item {
+    font-size: 16px;
+  }
+
+  .titulo-paleta {
+    font-size: 16px;
+  }
+
+  .label-cor {
+    font-size: 14px;
+  }
+
+  .pix-texto {
+    font-size: 16px;
+  }
+
+  .pix-dados {
+    font-size: 14px;
+  }
     }
   </style>
 </head>
