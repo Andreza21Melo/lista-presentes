@@ -41,6 +41,7 @@
       text-decoration: line-through;
     }
 
+    /* POPUP */
     .popup-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -52,7 +53,7 @@
       z-index: 9999;
     }
     .popup-box {
-      background: #f8f4ef; 
+      background: #fff; /* igual ao fundo da lista */
       padding: 25px 30px;
       border-radius: 16px;
       text-align: center;
@@ -78,14 +79,16 @@
     #btn-cancelar { background: #ddd; }
     #btn-confirmar { background: #dbbe4c; color: #fff; }
 
+    /* Título Importante */
     #popup-importante .popup-box strong {
       display: block;
-      font-size: 22px;   
-      font-weight: 700;  
+      font-size: 22px;   /* maior */
+      font-weight: 700;  /* negrito */
       margin-bottom: 12px;
-      color: #9b1c31;    
+      color: #9b1c31;    /* vinho igual ao título principal */
     }
 
+    /* TOAST */
     .toast {
       position: fixed;
       bottom: 30px;
@@ -133,6 +136,7 @@
   <!-- Toast -->
   <div id="toast" class="toast">🎁 Item reservado com sucesso! Obrigada pelo carinho 💕</div>
 
+  <!-- Popup Importante -->
   <div id="popup-importante" class="popup-overlay">
     <div class="popup-box">
       <p><strong>⚠️ Importante</strong></p>
@@ -148,9 +152,10 @@
     const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI";
     
+
     let itemParaReservar = null;
     let checkboxAtual = null;
-    
+
     const popup = document.getElementById("popup-overlay");
     const btnCancelar = document.getElementById("btn-cancelar");
     const btnConfirmar = document.getElementById("btn-confirmar");
@@ -159,7 +164,7 @@
     const popupImportante = document.getElementById("popup-importante");
     const btnOkImportante = document.getElementById("btn-ok-importante");
 
-
+    // Mostrar mensagem importante ao carregar a página
     window.onload = () => {
       popupImportante.style.display = "flex";
     };
@@ -237,8 +242,10 @@
 
       carregarItens();
 
+      // Exibir a mensagem importante primeiro
       popupImportante.style.display = "flex";
 
+      // Quando o usuário clicar em OK, aí sim mostramos o toast
       btnOkImportante.onclick = () => {
         popupImportante.style.display = "none";
         mostrarToast();
