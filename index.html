@@ -345,19 +345,16 @@
   const popupImportante = document.getElementById("popup-importante");
 const btnOkImportante = document.getElementById("btn-ok-importante");
 
-// Mostrar mensagem importante ao carregar a página
 window.onload = () => {
   popupImportante.style.display = "flex";
 };
 
-// Fechar mensagem importante
 btnOkImportante.onclick = () => {
   popupImportante.style.display = "none";
 };
 
-// Mostrar mensagem importante novamente após reservar item
-function reservarItem(id) {
-  fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
+async function reservarItem(id) {
+  await fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
     method: "PATCH",
     headers: {
       apikey: SUPABASE_KEY,
@@ -365,14 +362,18 @@ function reservarItem(id) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ reservado: true })
-  }).then(() => {
-    mostrarToast();
-    carregarItens();
-    // Exibir novamente a mensagem importante
-    setTimeout(() => {
-      popupImportante.style.display = "flex";
-    }, 1000);
   });
+
+  carregarItens();
+
+  // Exibir a mensagem importante primeiro
+  popupImportante.style.display = "flex";
+
+  // Quando o usuário clicar em OK, aí sim mostramos o toast
+  btnOkImportante.onclick = () => {
+    popupImportante.style.display = "none";
+    mostrarToast();
+  };
 }
 const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI";
