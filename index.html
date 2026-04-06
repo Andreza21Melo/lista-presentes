@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <title>Lista de Presentes – Andreza & Joab</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/png">
@@ -35,419 +34,231 @@
       padding: 16px 0;
       border-bottom: 1px solid #eee;
       align-items: center;
-      font-family:'Cormorant Garamond', serif;
       font-size:18px;
     }
     .item.checked {
       opacity: 0.5;
       text-decoration: line-through;
     }
-    .pix-texto {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
 
-.pix-dados {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  color: #666;
-  margin-top: 8px;
-}
-  .pix img {
-  width: 200px;
-  display: block;
-  margin: 15px auto;
-  border: 3px solid #dbbe4c;
-  padding: 10px;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-  .paleta-container{
-      text-align:center;
-      margin: 15px 0;
-      font-family: Arial, sans-serif;
-    }
-    .titulo-paleta{
-      font-family:'Cormorant Garamond',serif;
-      font-weight:600;
-      letter-spacing:1px;
-      margin-bottom:10px;
-      font-size: 1.1em;
-      color:#4a4a4a;
-    }
-    .paleta-cores{
-      display :flex;
-      justify-content : center;
-      gap : 25px;
-    }
-    .bola-com-label{
-      display : flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .bola{
-      width : 40px;
-      height : 40px;
-      border-radius : 50%;
-      border : 2px solid #ccc;
-      margin-bottom: 6px;
-    }
-    .label-cor{
-      font-size : 0.9em;
-      color : #4a4a4a;
-    }
-    .mensagem-topo{
-      text-align:center;
-      max-width:1200px;
-      margin:15px auto 25px auto;
-      font-size: 0.95em;
-      color: #6b6b6b;
-      line-height: 1.6;
-    }
-    .pix{
-       text-align:center;
-      max-width:400px;
-      margin:15px auto 25px auto;
-      font-size: 0.95em;
-      color: #6b6b6b;
-      line-height: 1.6;
-    }
-    .topo-img{
-      width:100%;
-      max-width:600px;
-      display:block;
-      margin:0 auto 15px auto;
-      border-radius:8px;
-    }
-    .item input {
-  transform: scale(1.2);
-    }
-    @media (max-width: 480px) {
-
-  h1 {
-    font-size: 34px;
-  }
-
-  .item {
-    font-size: 16px;
-  }
-  .item span {
-    flex:1;
-  }
-
-  .titulo-paleta {
-    font-size: 16px;
-  }
-
-  .label-cor {
-    font-size: 14px;
-  }
-
-  .pix-texto {
-    font-size: 16px;
-  }
-
-  .pix-dados {
-    font-size: 14px;
-  }
-      .pix img {
-  width: 170px;
-  padding: 8px;
-}
-
-.container {
-  padding: 16px;
-}
-
-.mensagem-topo {
-  font-size: 0.9em;
-}
-
-.pix-texto {
-  font-size: 15px;
-}
-
-.pix-dados {
-  font-size: 13px;
-    }
-    }
-    @media (max-width: 480px) {
-  .item input {
-    transform: scale(1.3);
-  }
-    }
     /* POPUP */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-box {
+      background: #fff; /* igual ao fundo da lista */
+      padding: 25px 30px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 340px;
+      font-family: 'Cormorant Garamond', serif;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: #333;
+    }
+    .popup-botoes {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .popup-botoes button {
+      flex: 1;
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #btn-cancelar { background: #ddd; }
+    #btn-confirmar { background: #dbbe4c; color: #fff; }
 
-.popup-box {
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 16px;
-  text-align: center;
-  max-width: 300px;
-  font-family: 'Cormorant Garamond', serif;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    /* Título Importante */
+    #popup-importante .popup-box strong {
+      display: block;
+      font-size: 22px;   /* maior */
+      font-weight: 700;  /* negrito */
+      margin-bottom: 12px;
+      color: #9b1c31;    /* vinho igual ao título principal */
+    }
 
-.popup-botoes {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.popup-botoes button {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-#btn-cancelar {
-  background: #ddd;
-}
-
-#btn-confirmar {
-  background: #dbbe4c;
-  color: #fff;
-}
-
-/* TOAST */
-.toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #dbbe4c;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s ease;
-  z-index: 9999;
-}
-
-.toast.show {
-  opacity: 1;
-  bottom: 50px;
-}
-    .wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 30px; 
-  margin-top: 20px;
-}
-
-
-.popup-importante .popup-box {
-  background: #fff;              
-  padding: 25px 30px;
-  border-radius: 16px;
-  text-align: center;
-  max-width: 340px;
-  font-family: 'Cormorant Garamond', serif;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  color: #000;
-}
-
-.popup-importante .popup-box p strong {
-  display: block;
-  font-size: 20px;             
-  font-weight: 700;             
-  margin-bottom: 12px;
-  color: #9b1c31;                
-}
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #dbbe4c;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+    .toast.show { opacity: 1; bottom: 50px; }
   </style>
 </head>
-  
-  <body>
-    <img src="topo.jpeg" class="topo-img">
-
+<body>
+  <img src="topo.jpeg" class="topo-img">
   <h1>Lista de Presentes</h1>
-
-  <div class="mensagem-topo">
-    <p>Criamos esta lista apenas como sugestão, para facilitar caso alguém deseje nos presentear!</p>
-    <p>Fique totalmente à vontade para escolher um item ou utilizar o Pix.</p>
-    <p>O mais importante para nós é compartilhar este momento com você🤍</p>
-  </div>
-
-  <div class="paleta-container">
-    <p class="titulo-paleta">Sugestão de cores</p>
-    <div class="paleta-cores">
-      <div class="bola-com-label">
-        <span class="bola" style="background-color: #dbbe4c;"></span>
-        <span class="label-cor">Dourado</span>
-      </div>
-      <div class="bola-com-label">
-        <span class="bola" style="background-color: #4a4a4a;"></span>
-        <span class="label-cor">Preto</span>
-      </div>
-      <div class="bola-com-label">
-        <span class="bola" style="background-color: #f8f8f2;"></span>
-        <span class="label-cor">Branco</span>
-      </div>
-    </div>
-  </div>
 
   <div class="container" id="lista"></div>
 
   <div class="pix">
     <p class="pix-texto">Se preferir, também pode usar nosso Pix 💕</p>
-    
     <img src="pix-qr.png.jpeg" alt="QR Code Pix">
-
     <p class="pix-dados">
-    Chave Pix: andrezahfm12@gmail.com<br>
-    Andreza Fernandes Melo - Mercado Pago
+      Chave Pix: andrezahfm12@gmail.com<br>
+      Andreza Fernandes Melo - Mercado Pago
     </p>
   </div>
-<div id="popup-overlay" class="popup-overlay">
-  <div class="popup-box">
-    <p>Deseja realmente reservar este presente?</p>
-    <div class="popup-botoes">
-      <button id="btn-cancelar">Cancelar</button>
-      <button id="btn-confirmar">Confirmar</button>
+
+  <!-- Popup de confirmação -->
+  <div id="popup-overlay" class="popup-overlay">
+    <div class="popup-box">
+      <p>Deseja realmente reservar este presente?</p>
+      <div class="popup-botoes">
+        <button id="btn-cancelar">Cancelar</button>
+        <button id="btn-confirmar">Confirmar</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="toast" class="toast">
-  🎁 Item reservado com sucesso! Obrigada pelo carinho 💕
-</div>
+  <!-- Toast -->
+  <div id="toast" class="toast">🎁 Item reservado com sucesso! Obrigada pelo carinho 💕</div>
 
-    <div id="popup-importante" class="popup-overlay">
-  <div class="popup-box">
-    <p><strong>⚠️ Importante:</strong></p>
-    <p>Este não é um site de casamento. Aqui você apenas marca o presente que gostaria de nos oferecer, para que outros convidados saibam que já foi escolhido.</p>
-    <p>O presente pode ser comprado onde e como preferir, e entregue em mãos no dia do casamento ou em outro momento combinado.</p>
-    <div class="popup-botoes">
-      <button id="btn-ok-importante">OK</button>
+  <!-- Popup Importante -->
+  <div id="popup-importante" class="popup-overlay">
+    <div class="popup-box">
+      <p><strong>⚠️ Importante</strong></p>
+      <p>Este não é um site de casamento. Aqui você apenas marca o presente que gostaria de nos oferecer, para que outros convidados saibam que já foi escolhido.</p>
+      <p>O presente pode ser comprado onde e como preferir, e entregue em mãos no dia do casamento ou em outro momento combinado.</p>
+      <div class="popup-botoes">
+        <button id="btn-ok-importante">OK</button>
+      </div>
     </div>
   </div>
-</div>
-    
-<script>
 
-  const popupImportante = document.getElementById("popup-importante");
-const btnOkImportante = document.getElementById("btn-ok-importante");
+  <script>
+    const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
+    const SUPABASE_KEY = "SUA_CHAVE_AQUI"; // substitua pela sua chave
 
-window.onload = () => {
-  popupImportante.style.display = "flex";
-};
+    let itemParaReservar = null;
+    let checkboxAtual = null;
 
-btnOkImportante.onclick = () => {
-  popupImportante.style.display = "none";
-};
+    const popup = document.getElementById("popup-overlay");
+    const btnCancelar = document.getElementById("btn-cancelar");
+    const btnConfirmar = document.getElementById("btn-confirmar");
+    const toast = document.getElementById("toast");
 
-async function reservarItem(id) {
-  await fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
-    method: "PATCH",
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ reservado: true })
-  });
+    const popupImportante = document.getElementById("popup-importante");
+    const btnOkImportante = document.getElementById("btn-ok-importante");
 
-  carregarItens();
+    // Mostrar mensagem importante ao carregar a página
+    window.onload = () => {
+      popupImportante.style.display = "flex";
+    };
 
-  // Exibir a mensagem importante primeiro
-  popupImportante.style.display = "flex";
+    btnOkImportante.onclick = () => {
+      popupImportante.style.display = "none";
+    };
 
-  // Quando o usuário clicar em OK, aí sim mostramos o toast
-  btnOkImportante.onclick = () => {
-    popupImportante.style.display = "none";
-    mostrarToast();
-  };
-}
-const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI";
-
-let itemParaReservar = null;
-let checkboxAtual = null;
-
-const popup = document.getElementById("popup-overlay");
-const btnCancelar = document.getElementById("btn-cancelar");
-const btnConfirmar = document.getElementById("btn-confirmar");
-const toast = document.getElementById("toast");
-
-async function carregarItens() {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`
+    async function carregarItens() {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`
+        }
+      });
+      const data = await res.json();
+      mostrarItens(data);
     }
-  });
 
-  const data = await res.json();
-  mostrarItens(data);
-}
+    function mostrarItens(itens) {
+      const lista = document.getElementById("lista");
+      lista.innerHTML = "";
 
-function mostrarItens(itens) {
-  const lista = document.getElementById("lista");
-  lista.innerHTML = "";
+      itens.sort((a, b) => {
+        if (a.reservado !== b.reservado) return a.reservado ? 1 : -1;
+        return a.nome.localeCompare(b.nome, 'pt-BR');
+      });
 
-  itens.sort((a, b) => {
-    if (a.reservado !== b.reservado) return a.reservado ? 1 : -1;
-    return a.nome.localeCompare(b.nome, 'pt-BR');
-  });
+      itens.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item" + (item.reservado ? " checked" : "");
 
-  itens.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item" + (item.reservado ? " checked" : "");
+        const span = document.createElement("span");
+        span.textContent = item.nome;
 
-    const span = document.createElement("span");
-    span.textContent = item.nome;
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = item.reservado;
+        checkbox.disabled = item.reservado;
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = item.reservado;
-    checkbox.disabled = item.reservado;
+        checkbox.onchange = () => abrirPopup(item.id, checkbox);
 
-    checkbox.onchange = () => abrirPopup(item.id, checkbox);
+        div.appendChild(span);
+        div.appendChild(checkbox);
+        lista.appendChild(div);
+      });
+    }
 
-    div.appendChild(span);
-    div.appendChild(checkbox);
-    lista.appendChild(div);
-  });
-}
+    function abrirPopup(id, checkbox) {
+      itemParaReservar = id;
+      checkboxAtual = checkbox;
+      popup.style.display = "flex";
+    }
 
-function abrirPopup(id, checkbox) {
-  itemParaReservar = id;
-  checkboxAtual = checkbox;
-  popup.style.display = "flex";
-}
+    btnCancelar.onclick = () => {
+      popup.style.display = "none";
+      if (checkboxAtual) checkboxAtual.checked = false;
+    };
 
-btnCancelar.onclick = () => {
-  popup.style.display = "none";
-  if (checkboxAtual) checkboxAtual.checked = false;
-};
+    btnConfirmar.onclick = () => {
+      popup.style.display = "none";
+      reservarItem(itemParaReservar);
+    };
 
-btnConfirmar.onclick = () => {
-  popup.style.display = "none";
-  reservarItem(itemParaReservar);
-};
+    async function reservarItem(id) {
+      await fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
+        method: "PATCH",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ reservado: true })
+      });
 
-carregarItens();
-</script>
+      carregarItens();
 
+      // Exibir a mensagem importante primeiro
+      popupImportante.style.display = "flex";
+
+      // Quando o usuário clicar em OK, aí sim mostramos o toast
+      btnOkImportante.onclick = () => {
+        popupImportante.style.display = "none";
+        mostrarToast();
+      };
+    }
+
+    function mostrarToast() {
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    carregarItens();
+  </script>
 </body>
 </html>
