@@ -41,7 +41,6 @@
       text-decoration: line-through;
     }
 
-    /* POPUP */
     .popup-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -53,7 +52,7 @@
       z-index: 9999;
     }
     .popup-box {
-      background: #fff; /* igual ao fundo da lista */
+      background: #fff; 
       padding: 25px 30px;
       border-radius: 16px;
       text-align: center;
@@ -79,16 +78,14 @@
     #btn-cancelar { background: #ddd; }
     #btn-confirmar { background: #dbbe4c; color: #fff; }
 
-    /* Título Importante */
     #popup-importante .popup-box strong {
       display: block;
-      font-size: 22px;   /* maior */
-      font-weight: 700;  /* negrito */
+      font-size: 22px;   
+      font-weight: 700; 
       margin-bottom: 12px;
-      color: #9b1c31;    /* vinho igual ao título principal */
+      color: #9b1c31;    
     }
 
-    /* TOAST */
     .toast {
       position: fixed;
       bottom: 30px;
@@ -122,7 +119,6 @@
     </p>
   </div>
 
-  <!-- Popup de confirmação -->
   <div id="popup-overlay" class="popup-overlay">
     <div class="popup-box">
       <p>Deseja realmente reservar este presente?</p>
@@ -133,10 +129,8 @@
     </div>
   </div>
 
-  <!-- Toast -->
   <div id="toast" class="toast">🎁 Item reservado com sucesso! Obrigada pelo carinho 💕</div>
 
-  <!-- Popup Importante -->
   <div id="popup-importante" class="popup-overlay">
     <div class="popup-box">
       <p><strong>⚠️ Importante</strong></p>
@@ -164,7 +158,6 @@
     const popupImportante = document.getElementById("popup-importante");
     const btnOkImportante = document.getElementById("btn-ok-importante");
 
-    // Mostrar mensagem importante ao carregar a página
     window.onload = () => {
       popupImportante.style.display = "flex";
     };
@@ -242,10 +235,8 @@
 
       carregarItens();
 
-      // Exibir a mensagem importante primeiro
       popupImportante.style.display = "flex";
 
-      // Quando o usuário clicar em OK, aí sim mostramos o toast
       btnOkImportante.onclick = () => {
         popupImportante.style.display = "none";
         mostrarToast();
