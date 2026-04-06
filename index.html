@@ -5,111 +5,154 @@
   <title>Lista de Presentes – Andreza & Joab</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/png">
+<style>
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: #f8f4ef;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
-  <style>
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background: #f8f4ef;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .topo-img{
-      width: 100%;
-      max-width: 390px;
-      display: block;
-      margin: 0 auto;
-    }
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 42px;
-      text-align: center;
-      color: #9b1c31;
-      margin-bottom:10px;
-    }
-    .container {
-      width:100%;
-      max-width: 390px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      padding: 16px 0;
-      border-bottom: 1px solid #eee;
-      align-items: center;
-      font-size:18px;
-    }
-    .item.checked {
-      opacity: 0.5;
-      text-decoration: line-through;
-    }
+  .topo-img {
+    width: 100%;
+    max-width: 390px;
+    display: block;
+    margin: 0 auto;
+  }
 
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.45);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .popup-box {
-      background: #fff; 
-      padding: 25px 30px;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 340px;
-      font-family: 'Cormorant Garamond', serif;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      color: #333;
-    }
-    .popup-botoes {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    .popup-botoes button {
-      flex: 1;
-      padding: 8px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    #btn-cancelar { background: #ddd; }
-    #btn-confirmar { background: #dbbe4c; color: #fff; }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    text-align: center;
+    color: #9b1c31;
+    margin: 20px 0 10px;
+  }
 
-    #popup-importante .popup-box strong {
-      display: block;
-      font-size: 22px;   
-      font-weight: 700; 
-      margin-bottom: 12px;
-      color: #9b1c31;    
-    }
+  .container {
+    width: 90%;
+    max-width: 390px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
 
-    .toast {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #dbbe4c;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s ease;
-      z-index: 9999;
-    }
-    .toast.show { opacity: 1; bottom: 50px; }
-  </style>
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
+
+  .item.checked {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  /* ===== PIX ===== */
+  .pix {
+    width: 90%;
+    max-width: 390px;
+    margin: 20px auto;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  .pix img {
+    width: 180px;
+    margin: 10px 0;
+  }
+
+  .pix-texto {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .pix-dados {
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* ===== POPUP ===== */
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .popup-box {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 340px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .popup-botoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .popup-botoes button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  #btn-cancelar { background: #ddd; }
+  #btn-confirmar { background: #dbbe4c; color: #fff; }
+
+  #popup-importante .popup-box strong {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #9b1c31;
+  }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #dbbe4c;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    z-index: 9999;
+  }
+
+  .toast.show {
+    opacity: 1;
+    bottom: 50px;
+  }
+</style>
+  
 </head>
 <body>
   <img src="topo.jpeg" class="topo-img">
