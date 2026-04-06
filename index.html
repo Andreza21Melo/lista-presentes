@@ -285,12 +285,6 @@
     <p>O mais importante para nós é compartilhar este momento com você🤍</p>
   </div>
 
-<div class="observacao-box">
-  <p><strong>⚠️ Importante:</strong></p>
-  <p><strong>Este não é um site de casamento. Aqui você apenas marca o presente que gostaria de nos oferecer, para que outros convidados saibam que já foi escolhido.</strong></p>
-  <p><strong>O presente pode ser comprado onde e como preferir, e entregue em mãos no dia do casamento ou em outro momento combinado.</strong></p>
-</div>
-
   <div class="paleta-container">
     <p class="titulo-paleta">Sugestão de cores</p>
     <div class="paleta-cores">
@@ -334,7 +328,52 @@
 <div id="toast" class="toast">
   🎁 Item reservado com sucesso! Obrigada pelo carinho 💕
 </div>
+
+    <div id="popup-importante" class="popup-overlay">
+  <div class="popup-box">
+    <p><strong>⚠️ Importante:</strong></p>
+    <p>Este não é um site de casamento. Aqui você apenas marca o presente que gostaria de nos oferecer, para que outros convidados saibam que já foi escolhido.</p>
+    <p>O presente pode ser comprado onde e como preferir, e entregue em mãos no dia do casamento ou em outro momento combinado.</p>
+    <div class="popup-botoes">
+      <button id="btn-ok-importante">OK</button>
+    </div>
+  </div>
+</div>
+    
 <script>
+
+  const popupImportante = document.getElementById("popup-importante");
+const btnOkImportante = document.getElementById("btn-ok-importante");
+
+// Mostrar mensagem importante ao carregar a página
+window.onload = () => {
+  popupImportante.style.display = "flex";
+};
+
+// Fechar mensagem importante
+btnOkImportante.onclick = () => {
+  popupImportante.style.display = "none";
+};
+
+// Mostrar mensagem importante novamente após reservar item
+function reservarItem(id) {
+  fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
+    method: "PATCH",
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ reservado: true })
+  }).then(() => {
+    mostrarToast();
+    carregarItens();
+    // Exibir novamente a mensagem importante
+    setTimeout(() => {
+      popupImportante.style.display = "flex";
+    }, 1000);
+  });
+}
 const SUPABASE_URL = "https://wskjkbkzuvjkbgffnytf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indza2prYmt6dXZqa2JnZmZueXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NTM1MDMsImV4cCI6MjA4NTAyOTUwM30.Qr9oyaQLLd3EqeofnBqNFeCoWZe-25P9YnNq9joowoI";
 
