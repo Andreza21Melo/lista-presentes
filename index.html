@@ -308,7 +308,7 @@
 
 <div id="popup-importante" class="popup-overlay">
   <div class="popup-box">
-    <p><strong> importante</strong></p>
+    <p><strong> ⚠️ Importante</strong></p>
     <p>Este não é um site de casamento. Aqui você apenas marca o presente que gostaria de nos oferecer, para que outros convidados saibam que já foi escolhido.</p>
     <p>O presente pode ser comprado onde e como preferir, e entregue em mãos no dia do casamento ou em outro momento combinado.</p>
 
@@ -325,10 +325,10 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 let itemParaReservar = null;
 let checkboxAtual = null;
 
-const popup = document.getElementById("popup-overlay");
-const btnCancelar = document.getElementById("btn-cancelar");
-const btnConfirmar = document.getElementById("btn-confirmar");
-const toast = document.getElementById("toast");
+const popup = document.getElementByid("popup-overlay");
+const btnCancelar = document.getElementByid("btn-cancelar");
+const btnConfirmar = document.getElementByid("btn-confirmar");
+const toast = document.getElementByid("toast");
 
 async function carregarItens() {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
@@ -371,10 +371,10 @@ function mostrarItens(itens) {
   });
 }
   const popupImportante=
-    document.getElementByld("popup-importante");
+    document.getElementByid("popup-importante");
 
-  const bntOkImportante=
-    document.getElementByld("bnt-ok-importante");
+  const btnOkImportante=
+    document.getElementByid("bnt-ok-importante");
 
 function abrirPopup(id, checkbox) {
   itemParaReservar = id;
@@ -391,7 +391,7 @@ btnConfirmar.onclick = () => {
   popup.style.display = "none";
   reservarItem(itemParaReservar);
 };
-  bntOkImportante.onclick = () => {
+  btnOkImportante.onclick = () => {
     popupImportante.style.display="none";
     document.body.style.display="block";
   };
