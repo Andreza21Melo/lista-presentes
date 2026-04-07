@@ -325,10 +325,10 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 let itemParaReservar = null;
 let checkboxAtual = null;
 
-const popup = document.getElementByid("popup-overlay");
-const btnCancelar = document.getElementByid("btn-cancelar");
-const btnConfirmar = document.getElementByid("btn-confirmar");
-const toast = document.getElementByid("toast");
+const popup = document.getElementById("popup-overlay");
+const btnCancelar = document.getElementById("btn-cancelar");
+const btnConfirmar = document.getElementById("btn-confirmar");
+const toast = document.getElementById("toast");
 
 async function carregarItens() {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/presentes?select=*`, {
@@ -371,10 +371,10 @@ function mostrarItens(itens) {
   });
 }
   const popupImportante=
-    document.getElementByid("popup-importante");
+    document.getElementById("popup-importante");
 
   const btnOkImportante=
-    document.getElementByid("bnt-ok-importante");
+    document.getElementById("bnt-ok-importante");
 
 function abrirPopup(id, checkbox) {
   itemParaReservar = id;
