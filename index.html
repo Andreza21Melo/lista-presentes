@@ -370,6 +370,11 @@ function mostrarItens(itens) {
     lista.appendChild(div);
   });
 }
+  const popupImportante=
+    document.getElementByld("popup-importante");
+
+  const bntOkImportante=
+    document.getElementByld("bnt-ok-importante");
 
 function abrirPopup(id, checkbox) {
   itemParaReservar = id;
@@ -386,6 +391,10 @@ btnConfirmar.onclick = () => {
   popup.style.display = "none";
   reservarItem(itemParaReservar);
 };
+  bntOkImportante.onclick = () => {
+    popupImportante.style.display="none";
+    document.body.style.display="block";
+  };
 
 async function reservarItem(id) {
   await fetch(`${SUPABASE_URL}/rest/v1/presentes?id=eq.${id}`, {
@@ -400,6 +409,10 @@ async function reservarItem(id) {
 
   mostrarToast();
   carregarItens();
+
+  setTimeout(() => {
+    popupImportante.style.display="flex";
+  }, 3000);
 }
 
 function mostrarToast() {
@@ -410,6 +423,10 @@ function mostrarToast() {
 }
 
 carregarItens();
+
+  window.onload = () => {
+    popupImportante.style.display="flex";
+  };
 </script>
 
 </body>
