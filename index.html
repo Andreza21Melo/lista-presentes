@@ -206,13 +206,17 @@
   justify-content: center;
 }
 
-.popup-botoes button: active {
+.popup-botoes button {
+  flex: 1;
   padding: 8px;
   border-radius: 8px;
-  border: none;
+  border: none !important;
   cursor: pointer;
   font-family: inherit;
-  background: #c9a24d;
+  background: #c9a24d !important;
+  color: #fff !important;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .btn-cancelar {
